@@ -155,3 +155,52 @@ DRONE PROGRAMLAMA KÜTÜPHANELERİ
 
 
 MAVSDK EN İDEAL. PX4
+-------------------------------------------------------------------------------------------------------------------------
+GitHub Nedir: Projeye ait tüm dosyaların ve yapılan değişikliklerin tutulduğu, web tabanlı bir versiyon kontrol aracıdır.
+
+Neden Kullanılır: Bilgisayarda yaşanabilecek donanımsal veya yazılımsal sorunlara karşı ilerlemeyi kaybetmemek ve önemli değişiklikler öncesinde projenin kaydını (yedeğini) almak için kullanılır. Günümüzde endüstri standardı haline gelmiştir.
+
+Açık Kaynak (Open Source) ve Lisans: Açık kaynaklı projeler, kodların diğer kullanıcılara ve değiştirmelere açık olduğu projelerdir. Bu sayede dünyanın dört bir yanından geliştiricilerin ilgisi çekilebilir. Ancak açık kaynak olması her zaman ücretsiz dağıtım hakkı verildiği anlamına gelmez; insanların bu kodu nasıl ve ne kadar kullanabileceğini belirlemek için projeye bir lisans eklenir.
+
+Download ZIP ve Clone Farkı: Projeyi ZIP olarak indirdiğinizde (örneğin starter-master şeklinde iner; burada 'starter' dosyanın ismi, 'master' ise branch'in ismidir) sadece kaynak kodları indirmiş olursunuz. Clone işlemi uyguladığınızda ise projenin geçmişini ve tüm Git özelliklerini de bilgisayarınıza klonlamış olursunuz.
+
+.gitignore: GitHub reposuna gitmesini veya takip edilmesini istemediğimiz dosyaları belirttiğimiz özel dosyadır.
+
+GitHub arayüzü üzerinden de proje üzerinde doğrudan değişiklikler yapılabilir. Ayrıca repo içindeki "Commits" kısmına tıklayarak projedeki hangi dosyalara nelerin eklendiğini (+ ile gösterilir) ve nelerin çıkarıldığını (- ile gösterilir) detaylıca görüntüleyebilirsiniz.
+
+Git Bash ve Temel Terminal İşlemleri
+Git komutlarını çalıştırmak için genellikle Git Bash kullanılır. Temel terminal komutları şunlardır:
+
+mkdir <klasör_adı>: Yeni bir klasör oluşturur (Örnek: mkdir githubprojects).
+
+cd <klasör_adı>: Oluşturulan veya halihazırda var olan klasörün içine girmeyi sağlar.
+
+clear: Terminal ekranındaki geçmiş yazıları temizler.
+
+Git Çalışma Akışı ve Senkronizasyon
+git remote add origin: Bilgisayarımızdaki yerel Git reposuna, web üzerindeki uzak repoya bağlanması gerektiğini söyler.
+
+git add <dosya_adı> veya git add .: Belirli bir dosyayı veya klasöre eklenen her şeyi Git'e tanıtmak (sahnelemek) için kullanılır.
+
+git commit -m "Yorum": Yapılan değişiklikleri bir açıklama yazarak kaydeder. Push işleminden önce mutlaka commit atılmalıdır, aksi halde değişiklikler uzak repoya yansımaz. Not: Commit işlemi, bilgisayarda değişikliğin yapıldığı zamanı kaydeder. Dosyayı web reposuna saatler sonra push etseniz bile, commit ekranında değişikliğin ilk yapıldığı zaman (örneğin "8 dk önce") görünür.
+
+git push: Commit edilmiş yerel kodları web'deki uzak repoya gönderir.
+
+git pull: Uzak repodaki kodları yerel bilgisayara alır. Arka planda git fetch ve git merge işlemlerinin birleşimiyle çalışır.
+
+Eğer bilgisayarınızdaki repo ile web'deki repo birebir aynıysa, push veya pull komutlarında bir değişiklik olmadığını belirten already up to date uyarısı alınır.
+
+Önemli Kural: Web reposunda bir değişiklik yapıldıysa ve yerel bilgisayarda da değişiklik yapıp push etmek isterseniz hata alırsınız. Bu durumu önlemek için önce git pull ile web'deki güncel kodları yerel bilgisayara çekmek gerekir.
+
+Çakışma (Conflict) Çözümü ve Branch (Dallanma) İşlemleri
+Conflict (Çakışma): Bir dosyanın aynı kısmına hem web'de hem de yerel bilgisayarda farklı düzenlemeler yapıp push uygulanmak istendiğinde ortaya çıkar. git status komutu yazıldığında, dosyanın iki tarafta da değiştirildiğini belirten both modified uyarısı alınır.
+
+Çözüm Yöntemi (Kafanın karıştığını belirtmişsin ancak temel mantığı tamamen doğru kavramışsın): Hangi versiyonun geçerli olmasını istiyorsak (örneğin local değişikliği korumak istiyorsak) dosyayı açıp remote'dan gelen ve istenmeyen kod satırlarını siliyoruz. Ardından git add . ile bu temizlenmiş hali tanımlayıp git commit -m "local değişikliği korudum" yazarak kaydediyoruz. Son olarak git push ile bu nihai dosyayı web reposuna dikte ediyoruz.
+
+git checkout -b <isim>: Yeni bir branch (dal) oluşturur ve doğrudan o branch'e geçer.
+
+git branch: Mevcut branch'leri görüntüler.
+
+git branch -d <branch_adı>: Belirtilen branch'i siler.
+
+git push origin <branch_ismi>: Yapılan değişiklikleri sadece o branch'e özel olarak uzak repoya gönderir.
