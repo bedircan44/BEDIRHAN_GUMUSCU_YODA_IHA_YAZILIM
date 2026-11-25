@@ -32,7 +32,7 @@ start_money = float(input("Initial Balance: "))
 # Sınıftan gerçek bir hesap nesnesi üretiyoruz
 account = BankAccount(name, acc_no, start_money)
 
-# Kullanıcı çıkış yapana kadar dönen basit menü
+# Kullanıcı çıkış yapana kadar dönen menü
 while True:
     print("\n1-Deposit | 2-Withdraw | 3-Show Info | 4-Exit")
     choice = input("Choice (1-4): ")
